@@ -1,32 +1,23 @@
 define([
-    'marionette',
-    'backbone'
-], function (Marionette, Backbone) {
+    'backbone',
+    'communicator',
+    'regionManager',
+    'regions'
+], function(Backbone, Communicator, RegionManager, Regions) {
     var app = new Marionette.Application();
 
-    app.addRegions({
-        headerRegion: 'header',
-        mainRegion: 'main',
-        footerRegion: 'footer'
-    });
-
-    app.navigate = function(route, options){
-        options || (options = {});
-        Backbone.history.navigate(route, options);
-    };
-
-    app.getCurrentRoute = function(){
-        return Backbone.history.fragment
-    };
-
-    app.on('start', function () {
+    app.addInitializer(function() {
         console.log('start');
+
+        this._regionManager = new Marionette.RegionManager();
+
+        Regions.init(this._regionManager)
+
         if (Backbone.history) {
             Backbone.history.start();
         }
-        /*if(this.getCurrentRoute() === ""){
-            app.trigger("generate:module");
-        }*/
+
+        Communicator.mediator.trigger('APP:START');
     });
 
     return app;
