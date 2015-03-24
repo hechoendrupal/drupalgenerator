@@ -23,5 +23,7 @@ require.config({
         twig: '../bower_components/twig.js/twig',
 
         template: 'templates',
+        view: 'views',
+        action: 'actions'
     }
 });
