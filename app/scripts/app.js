@@ -1,36 +1,29 @@
 define([
-    'backbone',
-    'marionette',
-    'router',
-    'routes',
-    'communicator',
-    'regionManager',
-    'regions'
-], function(Backbone, Marionette, Router, Routes, Communicator, RegionManager, Regions) {
-    var app = new Marionette.Application();
+        'backbone.marionette',
+        'communicator',
+        '!module/router',
+        '!module/routes'
+    ],
+    function(Marionette, Communicator, Router, Routes) {
+        'use strict';
 
-    app.addInitializer(function() {
-        console.log('start');
+        var app = new Marionette.Application();
+        app.addRegions({
+            header: 'header',
+            main: 'main',
+            footer: 'footer'
+        });
 
-        this._regionManager = new Marionette.RegionManager();
+        app.on('start', function() {
+            this._router = new Router({
+                app: this
+            });
+            Routes.init(this._router);
+            if (Backbone.history) {
+                Backbone.history.start();
+            }
+        })
 
-        Regions.init(this._regionManager)
+        return app;
 
-        // Initialize Router
-    this._router = new Router({ App: this});
-
-    // Set routes in router
-    Routes.init(this._router);
-    // Start routing system
-    Backbone.history.start();
-
-        if (Backbone.history) {
-            Backbone.history.start();
-        }
-
-        Communicator.mediator.trigger('APP:START');
     });
-
-    return app;
-
-});

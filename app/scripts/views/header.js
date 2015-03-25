@@ -1,23 +1,23 @@
 define([
         'backbone.marionette',
         'twig',
-        'text!template/home.html.twig'
+        'text!template/header.html.twig'
     ],
-    function(Marionette, Twig, HomeTemplate) {
+    function(Marionette, Twig, HeaderTemplate) {
         'use strict';
 
-        var HomeView = Marionette.ItemView.extend({
+        var HeaderView = Marionette.ItemView.extend({
             initialize: function() {
-                console.log("initialize a Home View");
+                console.log("initialize a Home Header");
             },
             template: function(data) {
                 var template = Twig.twig({
-                    data: HomeTemplate
+                    data: HeaderTemplate
                 });
                 return template.render(data);
             }
         });
 
-        return HomeView;
+        return HeaderView;
 
     });
