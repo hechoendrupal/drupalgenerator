@@ -2,7 +2,7 @@ define([
         'backbone.marionette',
         '!view/item/link'
     ],
-    function(Marionette, Twig, ViewLink) {
+    function(Marionette, ViewLink) {
         'use strict';
 
         var LinksView = Marionette.CollectionView.extend({

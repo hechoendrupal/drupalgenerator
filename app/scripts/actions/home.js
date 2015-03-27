@@ -1,11 +1,11 @@
 define([
         'backbone.marionette',
         '!view/home',
-        '!view/header',
-        '!view/collection/links',
-        '!collection/links'
+        '!view/layouts/header',
+        /*'!view/collection/links',
+        '!collection/links'*/
     ],
-    function(Marionette, HomeView, HeaderView, LinksView, LinksCollection) {
+    function(Marionette, HomeView, HeaderLayout/*, LinksView, LinksCollection*/) {
         'use strict';
 
         var Home = function(app) {
@@ -20,15 +20,10 @@ define([
             var home = new HomeView({
                 model: null
             });
-            var header = new HeaderView({
-                collection: null
-            });
+            var header = new HeaderLayout({});
 
-            var links = new LinksView({
-                collection: LinksCollection
-            });
             regionMain.show(home);
-            regionHeader.show(links);
+            regionHeader.show(header);
 
         };
 

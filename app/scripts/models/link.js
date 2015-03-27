@@ -6,7 +6,6 @@ define([
 
         var link = Backbone.Model.extend({
             initialize: function() {
-                alert("Welcome to this world");
             }
         });
 
