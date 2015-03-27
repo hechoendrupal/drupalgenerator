@@ -1,11 +1,46 @@
 <nav class="top-nav">
-    <div class="container">
-        <div class="row">
-            {% block side_nav %}
-                {% include 'partials/side-nav.html.twig' %}
-            {% endblock %}
-            <p class="page-title">Drupal Generator</p>
-            <a>A GUI to generate Drupal 8 module using the Drupal Console project</a>
+  <div class="container">
+    <div class="row">
+      <ul id="slide-out" class="side-nav fixed">
+        <div class="logo-container">
+        <img src="'images/logo.png'">
         </div>
+        <ul class="collapsible" data-collapsible="accordion" id="main-menu">
+          <!-- <li>
+            <div class="waves-effect collapsible-header">Generators</div>
+            <div class="collapsible-body">
+              <ul>
+                <li class="active"><a class="waves-effect" href="#module">Module</a></li>
+                <li><a class="waves-effect" href="#controller">Controller</a></li>
+                <li><a class="waves-effect" href="#permission">Permissions</a></li>
+                <li><a class="waves-effect" href="#service">Service</a></li>
+                <li><a class="waves-effect" href="#entity">Entity</a></li>
+                <li><a class="waves-effect" href="#form-config">Form Config</a></li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <div class="waves-effect collapsible-header">Plugin Generators</div>
+            <div class="collapsible-body">
+              <ul>
+                <li><a class="waves-effect" href="#block">Block</a></li>
+                <li><a class="waves-effect" href="#image-effect">Image Effect</a></li>
+                <li><a class="waves-effect" href="#rest-resource">REST Resource</a></li>
+              </ul>
+            </div>
+          </li>
+          <li>
+            <div class="waves-effect collapsible-header">Third Generators</div>
+            <div class="collapsible-body">
+              <ul>
+                <li><a class="waves-effect" href="#rules-action">Plugin Rules Action</a></li>
+              </ul>
+            </div>
+          </li> -->
+        </ul>
+      </ul>
+      <p class="page-title">Drupal Generator</p>
+      <a>A GUI to generate Drupal 8 module using the Drupal Console project</a>
     </div>
+  </div>
 </nav>

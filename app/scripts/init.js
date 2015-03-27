@@ -23,7 +23,9 @@ require.config({
         template: 'templates',
         view: 'views',
         action: 'actions',
-        module: 'modules'
+        module: 'modules',
+        collection: 'collections',
+        model: 'models'
 
     }
 });

@@ -1,9 +1,11 @@
 define([
         'backbone.marionette',
         '!view/home',
-        '!view/header'
+        '!view/header',
+        '!view/collection/links',
+        '!collection/links'
     ],
-    function(Marionette, HomeView, HeaderView) {
+    function(Marionette, HomeView, HeaderView, LinksView, LinksCollection) {
         'use strict';
 
         var Home = function(app) {
@@ -19,10 +21,14 @@ define([
                 model: null
             });
             var header = new HeaderView({
-                model: null
+                collection: null
+            });
+
+            var links = new LinksView({
+                collection: LinksCollection
             });
             regionMain.show(home);
-            regionHeader.show(header);
+            regionHeader.show(links);
 
         };
 
