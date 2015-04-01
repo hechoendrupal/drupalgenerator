@@ -4,10 +4,11 @@ define([
     function(Backbone) {
         'use strict';
 
-        var link = Backbone.Model.extend({
+        var Generator = Backbone.Model.extend({
             initialize: function() {
+                console.log("initialize a Generator model");
             }
         });
 
-        return link;
+        return Generator;
     });

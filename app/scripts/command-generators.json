@@ -1,0 +1,57 @@
+{
+	"generators": [
+
+		{
+			"id": "1",
+			"category": "generators",
+			"name": "Generators",
+			"commands": [
+				{
+					"name": "Module"
+				},
+				{
+					"name": "Controller"
+				},
+				{
+					"name": "Permissions"
+				},
+				{
+					"name": "Service"
+				},
+				{
+					"name": "Entity"
+				},
+				{
+					"name": "Form Config"
+				}	
+			]
+		},
+		{
+			"id": "2",
+			"category": "plugin_generators",
+			"name": "Plugin Generators",
+			"commands": [
+				{
+					"name": "Block"
+				},
+				{
+					"name": "Image Effect"
+				},
+				{
+					"name": "REST Resource"
+				}	
+			]
+		},
+		{
+			"id": "3",
+			"category": "third_generators",
+			"name": "Third Generators",
+			"commands": [
+				{
+					"name": "Plugin Rules Action"
+				}	
+			]
+		}
+		
+	]
+}

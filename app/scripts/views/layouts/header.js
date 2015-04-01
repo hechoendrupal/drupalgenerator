@@ -2,14 +2,73 @@ define([
         'backbone.marionette',
         'twig',
         'text!template/header.html.twig',
-        '!view/collection/links',
-        '!collection/links',
-        '!collection/link-items'
+        '!view/composite/generatorMenuGroup',
+        '!view/collection/menuGroup',
+        '!collection/generators',
+        '!collection/commands'
     ],
-    function(Marionette, Twig, HeaderTemplate, LinksView, LinksCollection, LinkItemsCollection) {
+    function(Marionette, Twig, HeaderTemplate, GeneratorMenuGroupView, MenuGroupView, GeneratorsCollection, CommandsCollection) {
         'use strict';
 
-        var linkscollection = new LinksCollection([1, 2, 3]);
+var source = {
+    "generators": [
+
+        {
+            "id": "1",
+            "category": "generators",
+            "name": "Generators",
+            "commands": [
+                {
+                    "name": "Module"
+                },
+                {
+                    "name": "Controller"
+                },
+                {
+                    "name": "Permissions"
+                },
+                {
+                    "name": "Service"
+                },
+                {
+                    "name": "Entity"
+                },
+                {
+                    "name": "Form Config"
+                }   
+            ]
+        },
+        {
+            "id": "2",
+            "category": "plugin_generators",
+            "name": "Plugin Generators",
+            "commands": [
+                {
+                    "name": "Block"
+                },
+                {
+                    "name": "Image Effect"
+                },
+                {
+                    "name": "REST Resource"
+                }   
+            ]
+        },
+        {
+            "id": "3",
+            "category": "third_generators",
+            "name": "Third Generators",
+            "commands": [
+                {
+                    "name": "Plugin Rules Action"
+                }   
+            ]
+        }
+        
+    ]
+};
+
+        /*var linkscollection = new LinksCollection([1, 2, 3]);
 
         linkscollection.each(function(link){
             var linkItems = [];
@@ -17,13 +76,24 @@ define([
             link.set('linkItem', linkItemsCollection);
         });
 
-        var links = new LinksView({
+        var menuGroup = new MenuGroupView({
             collection: linkscollection
-        });
+        });*/
+                
 
         var HeaderLayout = Marionette.LayoutView.extend({
             initialize: function() {
                 console.log("initialize a Header LAyout");
+                var generators = new GeneratorsCollection(source.generators);
+                generators.each(function (generator){
+                    var commands = generator.get('commands');
+                    var commandsCollection = new CommandsCollection(commands);
+                    generator.set ('commands', commandsCollection);
+                });
+                this.menuGroupView = new MenuGroupView({
+                    collection : generators
+                });
+                
             },
             template: function(data) {
                 var template = Twig.twig({
@@ -35,7 +105,7 @@ define([
                 menu: '#main-menu'
             },
             onRender: function(){
-                this.menu.show(links)// set up final bits just before rendering the view's `el`
+                this.menu.show(this.menuGroupView);
             }
 
         });

@@ -4,13 +4,11 @@ define([
     function(Backbone) {
         'use strict';
 
-        var Empty = Backbone.Model.extend({
-
+        var Command = Backbone.Model.extend({
             initialize: function(options) {
-                console.log("initialize a Empty model");
-
+                console.log("initialize a Command model");
             }
         });
 
-        return Empty;
+        return Command;
     });
