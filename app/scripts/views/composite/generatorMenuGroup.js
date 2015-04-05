@@ -8,10 +8,8 @@ define([
     function(Marionette, Twig, GeneratorMenuGroupTemplate , CommandMenuLinkView) {
         'use strict';
 
-
         var GeneratorMenuGroupView = Marionette.CompositeView.extend({
             initialize: function() {
-                console.log('link view');
                 this.collection = this.model.get('commands');
             },
             template: function(data) {
@@ -33,5 +31,4 @@ define([
         });
 
         return GeneratorMenuGroupView;
-
     });

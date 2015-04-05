@@ -6,12 +6,7 @@ require([
         '!module/regionManager'
     ],
     function(Backbone, App) {
-        'use strcit';
-
-        $(function() {
-            $('select').material_select();
-            $(".button-collapse").sideNav();
-        });
+        'use strict';
 
         App.start();
     });

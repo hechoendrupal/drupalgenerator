@@ -7,9 +7,6 @@ define([
         'use strict';
 
         var HeaderView = Marionette.ItemView.extend({
-            initialize: function() {
-                console.log("initialize a Home Header");
-            },
             template: function(data) {
                 var template = Twig.twig({
                     data: HeaderTemplate
@@ -19,5 +16,4 @@ define([
         });
 
         return HeaderView;
-
     });

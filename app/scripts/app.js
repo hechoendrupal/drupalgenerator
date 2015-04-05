@@ -22,8 +22,7 @@ define([
             if (Backbone.history) {
                 Backbone.history.start();
             }
-        })
+        });
 
         return app;
-
     });

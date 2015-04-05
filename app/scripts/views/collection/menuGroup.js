@@ -15,5 +15,4 @@ define([
         });
 
         return menuGroupView;
-
     });

@@ -7,9 +7,6 @@ define([
         'use strict';
 
         var HomeView = Marionette.ItemView.extend({
-            initialize: function() {
-                console.log("initialize a Home View");
-            },
             template: function(data) {
                 var template = Twig.twig({
                     data: HomeTemplate
@@ -19,5 +16,4 @@ define([
         });
 
         return HomeView;
-
     });

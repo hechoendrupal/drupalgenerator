@@ -3,11 +3,10 @@ require.config({
 
     /* starting point for application */
     deps: ['backbone.marionette', 'main'],
-
     shim: {
         materialize: {
             deps: ['jquery']
-        },
+        }
     },
     paths: {
         jquery: '../bower_components/jquery/dist/jquery.min',
@@ -26,6 +25,5 @@ require.config({
         module: 'modules',
         collection: 'collections',
         model: 'models'
-
     }
 });

@@ -12,7 +12,7 @@ define([
                 this.controller = new Controller({
                     app: options.app
                 });
-            },
+            }
         });
 
         return Router;
