@@ -2,8 +2,7 @@ define([
         'backbone.marionette',
         'twig',
         'text!template/generators-menu-group.html.twig',
-        '!view/item/commandMenuLink',
-        'materialize'
+        '!view/item/commandMenuLink'
     ],
     function (Marionette, Twig, GeneratorMenuGroupTemplate, CommandMenuLinkView) {
         'use strict';
@@ -20,14 +19,7 @@ define([
             },
             tagName: 'li',
             childView: CommandMenuLinkView,
-            childViewContainer: 'ul',
-            onShow: function () {
-                $(function () {
-                    $('.collapsible').collapsible({
-                        accordion: false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
-                    });
-                });
-            }
+            childViewContainer: 'ul'
         });
 
         return GeneratorMenuGroupView;
