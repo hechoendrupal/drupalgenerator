@@ -84,14 +84,22 @@ var source = {
         var HeaderLayout = Marionette.LayoutView.extend({
             initialize: function() {
                 console.log("initialize a Header LAyout");
-                var generators = new GeneratorsCollection(source.generators);
-                generators.each(function (generator){
-                    var commands = generator.get('commands');
-                    var commandsCollection = new CommandsCollection(commands);
-                    generator.set ('commands', commandsCollection);
-                });
-                this.menuGroupView = new MenuGroupView({
-                    collection : generators
+                var self = this;
+                this.generators = new GeneratorsCollection();
+                this.generators.fetch({
+                    success: function(collection){
+                        collection.each(function (generator){
+                            var commands = generator.get('commands');
+                            var commandsCollection = new CommandsCollection(commands);
+                            generator.set ('commands', commandsCollection);
+                        });
+                        self.menuGroupView = new MenuGroupView({
+                            collection : self.generators
+                        });
+                        self.render();
+                        self.menu.show(self.menuGroupView);
+
+                    }
                 });
                 
             },
@@ -103,9 +111,6 @@ var source = {
             },
             regions: {
                 menu: '#main-menu'
-            },
-            onRender: function(){
-                this.menu.show(this.menuGroupView);
             }
 
         });
@@ -113,3 +118,53 @@ var source = {
         return HeaderLayout;
 
     });
+/*
+
+ var HeaderLayout = Marionette.LayoutView.extend({
+ initialize: function() {
+ console.log("initialize a Header LAyout");
+ var self = this;
+ self.generators = new GeneratorsCollection();
+ self.generators.fetch({
+ success: function(collection){
+ collection.each(function (generator){
+ var commands = generator.get('commands');
+ var commandsCollection = new CommandsCollection(commands);
+ generator.set ('commands', commandsCollection);
+ });
+ self.render();
+ }
+ });
+ */
+/*self.menuGroupView = new MenuGroupView({
+ collection : this.generators
+ });*//*
+
+ */
+/*generators.each(function (generator){
+ var commands = generator.get('commands');
+ var commandsCollection = new CommandsCollection(commands);
+ generator.set ('commands', commandsCollection);
+ });*//*
+
+ */
+/*
+ *//*
+
+ },
+ template: function(data) {
+ var template = Twig.twig({
+ data: HeaderTemplate
+ });
+ return template.render(data);
+ },
+ regions: {
+ menu: '#main-menu'
+ },
+ onRender: function(){
+ var menuGroupView = new MenuGroupView({
+ collection : this.generators.toJSON()
+ });
+ this.menu.show(menuGroupView);
+ }
+ */

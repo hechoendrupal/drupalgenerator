@@ -8,8 +8,7 @@ define([
 
         var CommandMenuLinkView = Marionette.ItemView.extend({
             initialize: function() {
-                console.log('Commmand Menu Link view');
-                console.log(this);
+
             },
             template: function(data) {
                 var template = Twig.twig({
