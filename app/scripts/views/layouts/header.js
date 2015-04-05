@@ -8,22 +8,22 @@ define([
         '!collection/commands',
         'materialize'
     ],
-    function(Marionette, Twig, HeaderTemplate, GeneratorMenuGroupView, MenuGroupView, GeneratorsCollection, CommandsCollection) {
+    function (Marionette, Twig, HeaderTemplate, GeneratorMenuGroupView, MenuGroupView, GeneratorsCollection, CommandsCollection) {
         'use strict';
 
         var HeaderLayout = Marionette.LayoutView.extend({
-            initialize: function() {
+            initialize: function () {
                 var self = this;
                 this.generators = new GeneratorsCollection();
                 this.generators.fetch({
-                    success: function(collection){
-                        collection.each(function (generator){
+                    success: function (collection) {
+                        collection.each(function (generator) {
                             var commands = generator.get('commands');
                             var commandsCollection = new CommandsCollection(commands);
-                            generator.set ('commands', commandsCollection);
+                            generator.set('commands', commandsCollection);
                         });
                         self.menuGroupView = new MenuGroupView({
-                            collection : self.generators
+                            collection: self.generators
                         });
                         self.render();
                         self.menu.show(self.menuGroupView);
@@ -31,7 +31,7 @@ define([
                     }
                 });
             },
-            template: function(data) {
+            template: function (data) {
                 var template = Twig.twig({
                     data: HeaderTemplate
                 });
@@ -40,8 +40,8 @@ define([
             regions: {
                 menu: '#main-menu'
             },
-            onRender: function(){
-                $(function() {
+            onRender: function () {
+                $(function () {
                     $(".button-collapse").sideNav({
                         closeOnClick: true // Closes side-nav on <a> clicks, useful for Angular/Meteor
                     });

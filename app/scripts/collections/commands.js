@@ -2,7 +2,7 @@ define([
         'backbone',
         '!model/command'
     ],
-    function(Marionette, ModelCommand) {
+    function (Marionette, ModelCommand) {
         'use strict';
 
         var Commands = Backbone.Collection.extend({

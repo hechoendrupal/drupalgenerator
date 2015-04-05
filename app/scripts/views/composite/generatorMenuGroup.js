@@ -5,26 +5,26 @@ define([
         '!view/item/commandMenuLink',
         'materialize'
     ],
-    function(Marionette, Twig, GeneratorMenuGroupTemplate , CommandMenuLinkView) {
+    function (Marionette, Twig, GeneratorMenuGroupTemplate, CommandMenuLinkView) {
         'use strict';
 
         var GeneratorMenuGroupView = Marionette.CompositeView.extend({
-            initialize: function() {
+            initialize: function () {
                 this.collection = this.model.get('commands');
             },
-            template: function(data) {
+            template: function (data) {
                 var template = Twig.twig({
                     data: GeneratorMenuGroupTemplate
                 });
                 return template.render(data);
             },
             tagName: 'li',
-            childView : CommandMenuLinkView,
+            childView: CommandMenuLinkView,
             childViewContainer: 'ul',
-            onShow: function(){
-                $(function() {
+            onShow: function () {
+                $(function () {
                     $('.collapsible').collapsible({
-                        accordion : false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
+                        accordion: false // A setting that changes the collapsible behavior to expandable instead of the default accordion style
                     });
                 });
             }

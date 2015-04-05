@@ -1,6 +1,6 @@
-define(function() {
+define(function () {
     return {
-        init: function(RegionManager) {
+        init: function (RegionManager) {
 
             RegionManager.addRegion('headerRegion', 'header');
 

@@ -1,4 +1,3 @@
-
 require.config({
 
     /* starting point for application */

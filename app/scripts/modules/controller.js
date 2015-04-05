@@ -2,15 +2,15 @@ define([
         'backbone.marionette',
         '!action/home',
     ],
-    function(Marionette, Home) {
+    function (Marionette, Home) {
         'use strict';
 
         var Controller = Marionette.Controller.extend({
-            initialize: function(options) {
+            initialize: function (options) {
                 // store a regions that will be used to show the stuff rendered by this components
                 this.app = options.app;
             },
-            home: function() {
+            home: function () {
                 return Home(this.app);
             }
         });

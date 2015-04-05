@@ -5,7 +5,7 @@ require([
         'twig',
         '!module/regionManager'
     ],
-    function(Backbone, App) {
+    function (Backbone, App) {
         'use strict';
 
         App.start();

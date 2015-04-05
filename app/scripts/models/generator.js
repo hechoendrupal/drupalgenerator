@@ -1,7 +1,7 @@
 define([
         'backbone',
     ],
-    function(Backbone) {
+    function (Backbone) {
         'use strict';
 
         var Generator = Backbone.Model.extend({});

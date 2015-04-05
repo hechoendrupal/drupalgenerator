@@ -1,6 +1,6 @@
-define(function() {
+define(function () {
     return {
-        init: function(Router) {
+        init: function (Router) {
             Router.appRoute('', 'home');
         }
     };

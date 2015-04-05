@@ -4,7 +4,7 @@ define([
         '!module/router',
         '!module/routes'
     ],
-    function(Marionette, Communicator, Router, Routes) {
+    function (Marionette, Communicator, Router, Routes) {
         'use strict';
 
         var app = new Marionette.Application();
@@ -14,7 +14,7 @@ define([
             footer: 'footer'
         });
 
-        app.on('start', function() {
+        app.on('start', function () {
             this._router = new Router({
                 app: this
             });

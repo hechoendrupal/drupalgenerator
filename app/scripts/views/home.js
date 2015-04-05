@@ -3,11 +3,11 @@ define([
         'twig',
         'text!template/home.html.twig'
     ],
-    function(Marionette, Twig, HomeTemplate) {
+    function (Marionette, Twig, HomeTemplate) {
         'use strict';
 
         var HomeView = Marionette.ItemView.extend({
-            template: function(data) {
+            template: function (data) {
                 var template = Twig.twig({
                     data: HomeTemplate
                 });

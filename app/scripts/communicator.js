@@ -2,11 +2,11 @@ define([
         'backbone',
         'backbone.marionette'
     ],
-    function(Backbone) {
+    function (Backbone) {
         'use strict';
 
         var Communicator = Backbone.Marionette.Controller.extend({
-            initialize: function(options) {
+            initialize: function (options) {
                 console.log("initialize a Communicator");
 
                 // create a pub sub

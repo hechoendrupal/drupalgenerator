@@ -3,11 +3,11 @@ define([
         'twig',
         'text!template/command-menu-link.html.twig'
     ],
-    function(Marionette, Twig, CommandMenuLinkTemplate) {
+    function (Marionette, Twig, CommandMenuLinkTemplate) {
         'use strict';
 
         var CommandMenuLinkView = Marionette.ItemView.extend({
-            template: function(data) {
+            template: function (data) {
                 var template = Twig.twig({
                     data: CommandMenuLinkTemplate
                 });

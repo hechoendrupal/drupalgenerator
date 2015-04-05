@@ -3,10 +3,10 @@ define([
         '!view/home',
         '!view/layouts/header'
     ],
-    function(Marionette, HomeView, HeaderLayout) {
+    function (Marionette, HomeView, HeaderLayout) {
         'use strict';
 
-        var Home = function(app) {
+        var Home = function (app) {
             // Get region to render
             var regionMain = app._regionManager.get('main');
             var regionHeader = app._regionManager.get('header');

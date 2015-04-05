@@ -2,12 +2,12 @@ define([
         'backbone.marionette',
         'communicator'
     ],
-    function(Marionette, Communicator) {
+    function (Marionette, Communicator) {
         'use strict';
 
         var RegionManager = Marionette.Controller.extend({
 
-            initialize: function(options) {
+            initialize: function (options) {
                 console.log("Initialize a Region Manager");
 
                 /* internal region manager */
@@ -20,7 +20,7 @@ define([
             },
 
             /* add region facade */
-            addRegion: function(regionName, regionId) {
+            addRegion: function (regionName, regionId) {
                 var region = this.getRegion(regionName);
 
                 if (region) {
@@ -32,12 +32,12 @@ define([
             },
 
             /* remove region facade */
-            removeRegion: function(regionName) {
+            removeRegion: function (regionName) {
                 this._regionManager.removeRegion(regionName);
             },
 
             /* get region facade */
-            getRegion: function(regionName) {
+            getRegion: function (regionName) {
                 return this._regionManager.get(regionName);
             }
         });
