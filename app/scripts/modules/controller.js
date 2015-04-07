@@ -1,8 +1,9 @@
 define([
         'backbone.marionette',
         '!action/home',
+        '!action/generate'
     ],
-    function (Marionette, Home) {
+    function (Marionette, Home, Generate) {
         'use strict';
 
         var Controller = Marionette.Controller.extend({
@@ -12,6 +13,9 @@ define([
             },
             home: function () {
                 return Home(this.app);
+            },
+            generate: function () {
+                return Generate(this.app);
             }
         });
 
