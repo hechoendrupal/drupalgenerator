@@ -10,7 +10,8 @@
     "modernizr": "~2.7.1",
     "materialize": "~0.95.3",
     "marionette": "~2.4.1",
-    "twig.js": "~0.8.1"
+    "twig.js": "~0.8.1",
+    "backbone-forms": "~0.14.0"
   },
   "devDependencies": {}
 }

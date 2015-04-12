@@ -4,7 +4,9 @@ define([
     function (Backbone) {
         'use strict';
 
-        var Command = Backbone.Model.extend({});
+        var Command = Backbone.Model.extend({
+
+        });
 
         return Command;
     });

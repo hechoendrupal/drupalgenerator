@@ -14,7 +14,8 @@ define([
             home: function () {
                 return Home(this.app);
             },
-            generate: function () {
+            generate: function (generator) {
+                this.app.generator = generator;
                 return Generate(this.app);
             }
         });
