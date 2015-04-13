@@ -1,6 +1,6 @@
 define([
         'backbone.marionette',
-        '!module/controller'
+        'controller'
     ],
     function (Marionette, Controller) {
         'use strict';

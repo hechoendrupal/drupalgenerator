@@ -1,8 +1,8 @@
 define([
         'backbone.marionette',
         'communicator',
-        '!module/router',
-        '!module/routes'
+        'router',
+        'routes'
     ],
     function (Marionette, Communicator, Router, Routes) {
         'use strict';

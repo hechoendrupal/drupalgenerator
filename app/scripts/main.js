@@ -3,7 +3,7 @@ require([
         'app',
         'materialize',
         'twig',
-        '!module/regionManager'
+        'regionManager'
     ],
     function (Backbone, App) {
         'use strict';
