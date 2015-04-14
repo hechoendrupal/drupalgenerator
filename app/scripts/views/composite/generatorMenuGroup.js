@@ -10,6 +10,7 @@ define([
         var GeneratorMenuGroupView = Marionette.CompositeView.extend({
             initialize: function () {
                 this.collection = this.model.get('commands');
+                console.log(this);
             },
             template: function (data) {
                 var template = Twig.twig({

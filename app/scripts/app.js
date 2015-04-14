@@ -1,10 +1,9 @@
 define([
         'backbone.marionette',
-        'communicator',
         'router',
         'routes'
     ],
-    function (Marionette, Communicator, Router, Routes) {
+    function (Marionette, Router, Routes) {
         'use strict';
 
         var app = new Marionette.Application();
