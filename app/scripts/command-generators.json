@@ -1,0 +1,115 @@
+{
+  "generators": [
+    {
+      "id": "1",
+      "category": "generators",
+      "name": "Generators",
+      "commands": [
+        {
+          "name": "Module",
+          "machine_name": "module",
+          "schema": {
+            "id": "Number",
+            "name": "Text",
+            "password": "Password"
+          }
+        },
+        {
+          "name": "Controller",
+          "machine_name": "controller",
+          "schema": {
+            "id": "Number",
+            "name": "Text",
+            "password": "Password"
+          }
+        },
+        {
+          "name": "Permissions",
+          "machine_name": "permissions",
+          "schema": {
+            "id": "Number",
+            "name": "Text",
+            "password": "Password"
+          }
+        },
+        {
+          "name": "Service",
+          "machine_name": "service",
+          "schema": {
+            "id": "Number",
+            "name": "Text",
+            "password": "Password"
+          }
+        },
+        {
+          "name": "Entity",
+          "machine_name": "entity",
+          "schema": {
+            "id": "Number",
+            "name": "Text",
+            "password": "Password"
+          }
+        },
+        {
+          "name": "Form Config",
+          "machine_name": "form_config",
+          "schema": {
+            "id": "Number",
+            "name": "Text",
+            "password": "Password"
+          }
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "category": "plugin_generators",
+      "name": "Plugin Generators",
+      "commands": [
+        {
+          "name": "Block",
+          "machine_name": "block",
+          "schema": {
+            "id": "Number",
+            "name": "Text",
+            "password": "Password"
+          }
+        },
+        {
+          "name": "Image Effect",
+          "machine_name": "image_effect",
+          "schema": {
+            "id": "Number",
+            "name": "Text",
+            "password": "Password"
+          }
+        },
+        {
+          "name": "REST Resource",
+          "machine_name": "rest_resource",
+          "schema": {
+            "id": "Number",
+            "name": "Text",
+            "password": "Password"
+          }
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "category": "third_generators",
+      "name": "Third Generators",
+      "commands": [
+        {
+          "name": "Plugin Rules Action",
+          "machine_name": "plugin_rules_action",
+          "schema": {
+            "id": "Number",
+            "name": "Text",
+            "password": "Password"
+          }
+        }
+      ]
+    }
+  ]
+}
