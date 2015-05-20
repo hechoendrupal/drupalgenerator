@@ -1,8 +1,9 @@
 define([
         'backbone.marionette',
-        '!view/layouts/content'
+        '!view/layouts/content',
+        'session'
     ],
-    function (Marionette, ContentLayout) {
+    function (Marionette, ContentLayout, Session) {
         'use strict';
 
         var Content = function (app) {
@@ -15,6 +16,12 @@ define([
             });
             regionMain.show(home);
 
+            app.trigger("header");
+            console.log(Session);
+            Session.init(app);
+            /*console.log(app._router);
+            app._router.navigate('home', { trigger: false });
+*/
         };
 
         return Content;
