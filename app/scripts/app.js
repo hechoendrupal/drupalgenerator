@@ -1,27 +1,14 @@
-define([
-        'backbone.marionette',
-        'router',
-        'routes'
-    ],
-    function (Marionette, Router, Routes) {
-        'use strict';
+import React from 'react';
+import Home from './components/home';
 
-        var app = new Marionette.Application();
-        app.addRegions({
-            header: 'header',
-            main: 'main',
-            footer: 'footer'
-        });
+let injectTapEventPlugin = require("react-tap-event-plugin");
+//Needed for onTouchTap
+//Can go away when react 1.0 release
+//Check this repo:
+//https://github.com/zilverline/react-tap-event-plugin
+injectTapEventPlugin();
 
-        app.on('start', function () {
-            this._router = new Router({
-                app: this
-            });
-            Routes.init(this._router);
-            if (Backbone.history) {
-                Backbone.history.start();
-            }
-        });
+window.React = React;
+const mountNode = document.getElementById('app');
 
-        return app;
-    });
+React.render(<Home/>, mountNode);
