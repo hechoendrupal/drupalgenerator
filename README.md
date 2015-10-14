@@ -1,6 +1,6 @@
 # drupalgenerator
 
-[drupalgenerator](http://drupalgenerator.com/) is an intiative to provide a GUI
+[drupalgenerator](http://drupalgenerator.com/) is an initiative to provide a GUI
 for the Drupal Console project.
 
 The idea of this is site, is make the Drupal Console project available
