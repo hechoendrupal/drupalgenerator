@@ -1,7 +1,12 @@
 {
   "name": "drupalgenerator",
   "version": "0.0.0",
-  "dependencies": {},
+  "dependencies": {
+    "fbjs": "^0.2.1",
+    "material-ui": "^0.12.3",
+    "react-dom": "^0.14.0",
+    "react-tap-event-plugin": "^0.1.8"
+  },
   "devDependencies": {
     "babel-jest": "^5.0.1",
     "babelify": "^6.0.2",
