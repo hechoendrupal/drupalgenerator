@@ -1,28 +1,16 @@
 # drupalgenerator
-A GUI to generate Drupal 8 modules using the Drupal Console project
 
-# How to install
+[drupalgenerator](http://drupalgenerator.com/) is an initiative to provide a GUI
+for the Drupal Console project.
 
-* Clone the repository 
-```sh
-$ git clone https://github.com/hechoendrupal/drupalgenerator.git
-``` 
+The idea of this site, is make the Drupal Console project available
+for everyone, including people who does not have experience, or does not feel
+comfortable working on the terminal.
 
-* Locate inside the project and install npm and bower dependencies
-```sh
-$ npm install
-$ bower install
-```
-* At this moment materialize has problems when used with AMD (Require JS) https://github.com/Dogfalo/materialize/issues/634 you can replace the bower component with this https://github.com/max1011/materialize 
+### Purpose
 
-```sh
-$ cd app/bower_components
-  #remove Dogfalo materialize library
-$ rm -rf app/bower_components/materialize
-  #clone max1011 materialize library
-$ git clone https://github.com/max1011/materialize
-```
+Providing a GUI for the Drupal Console project to execute generators and
+provide a downloadable file containing the generated module or code.
 
-* Run `grunt serve`
-
-* Enjoy
+This is a WIP, for more information about the Drupal Console project, visit
+[the official site](http://drupalconsole.com/)

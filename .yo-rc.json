@@ -1,12 +1,5 @@
 {
-  "generator-backbone": {
-    "appPath": "app",
-    "appName": "Drupalgenerator",
-    "coffee": false,
-    "testFramework": "mocha",
-    "templateFramework": "lodash",
-    "sassBootstrap": false,
-    "includeRequireJS": true
-  },
-  "generator-mocha": {}
+  "generator-react-6": {
+    "includeJest": true
+  }
 }
