@@ -25,7 +25,7 @@ If you'd like to contribute to this project, please follow these steps:
 * cd into the local directory `$ cd drupalgenerator`
 * install all dependencies: `$ npm install && bower install`
 * run a development instance: `$ gulp watch`
-  this will run a development server at `http://localhost:4200` and watch for any
+  this will run a development server at `http://localhost:9000` and watch for any
   changes to local files
 * open a pull request against `master` branch
 * If you can contribute tests, you will automatically become one of our heroes
