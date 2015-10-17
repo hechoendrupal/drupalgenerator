@@ -3,10 +3,13 @@ import Card from 'material-ui/lib/card/card';
 import CardText from 'material-ui/lib/card/card-text';
 import CardTitle from 'material-ui/lib/card/card-title';
 import TextField from 'material-ui/lib/text-field';
+import Dialog from 'material-ui/lib/dialog';
+import LinearProgress from 'material-ui/lib/linear-progress';
 import FlatButton from 'material-ui/lib/flat-button';
 import RaisedButton from 'material-ui/lib/raised-button';
 import Toggle from 'material-ui/lib/toggle';
 import ConsoleDisplay from './console-display';
+
 
 
 export default class extends React.Component {
@@ -20,13 +23,22 @@ export default class extends React.Component {
       modulePackage: { argString: "package", value: null, stringOnly: false },
       moduleCore: { argString: "core", value: null, stringOnly: false },
       moduleDependencies: { argString: "dependencies", value: null, stringOnly: false },
-      moduleComposer: { argString: "composer", value: null, stringOnly: true },
-      moduleFeature: { argString: "feature", value: null, stringOnly: true }
+      moduleComposer: { argString: "composer", value: false, stringOnly: true },
+      moduleFeature: { argString: "feature", value: false, stringOnly: true }
     };
-
+    this.propsMap = [
+        "moduleName",
+        "moduleMachineName",
+        "modulePath",
+        "moduleDescription",
+        "modulePackage",
+        "moduleCore",
+        "moduleDependencies",
+        "moduleFeature",
+        "moduleComposer"
+      ]
     this.updateState = this.updateState.bind(this);
     this.cleanState = this.cleanState.bind(this);
-    this.printState = this.printState.bind(this);
     this.toggledSwitch = this.toggledSwitch.bind(this);
   }
 
@@ -39,15 +51,13 @@ export default class extends React.Component {
       modulePackage: { argString: "package", value: null, stringOnly: false },
       moduleCore: { argString: "core", value: null, stringOnly: false },
       moduleDependencies: { argString: "dependencies", value: null, stringOnly: false },
-      moduleComposer: { argString: "composer", value: null, stringOnly: true },
-      moduleFeature: { argString: "feature", value: null, stringOnly: true }
+      moduleComposer: { argString: "composer", value: false, stringOnly: true },
+      moduleFeature: { argString: "feature", value: false, stringOnly: true }
     };
+    this.refs.featureToggle.setToggled(false);
+    this.refs.composerToggle.setToggled(false);
 
     this.setState(newState);
-  }
-
-  printState() {
-    console.log(this.state);
   }
 
   updateState(key) {
@@ -72,7 +82,28 @@ export default class extends React.Component {
     this.setState(newState);
   }
 
+  openDialog() {
+    this.refs.generateModuleDialog.show();
+    console.log(this.toJSON());
+  }
+
+  toJSON() {
+    let optionsMap = {};
+    this.propsMap.forEach(function(propName) {
+      optionsMap[this.state[propName].argString] = this.state[propName].value;
+    }, this);
+
+    return {
+      "command": "generate:module",
+      "options": optionsMap
+    }
+  }
+
   render() {
+    let standardActions = [
+      { text: 'OK', onTouchTap: this._onDialogSubmit, ref: 'submit' }
+    ];
+
     return (
       <div clasName="generate-module-form-container">
         <Card>
@@ -134,6 +165,7 @@ export default class extends React.Component {
                     name="feature"
                     value={this.state.moduleFeature.value}
                     label="Set module compatibility with the Features module"
+                    ref="featureToggle"
                     onToggle={this.toggledSwitch.bind(this, "moduleFeature")} />
                 </div>
                 <div className="toggle-container">
@@ -141,24 +173,39 @@ export default class extends React.Component {
                     name="composer"
                     value={this.state.moduleComposer.value}
                     label="Add a composer.json file"
+                    ref="composerToggle"
                     onToggle={this.toggledSwitch.bind(this, "moduleComposer")} />
                 </div>
                 <div className="buttons">
-                  <FlatButton label="Clear all" onClick={this.cleanState} />
+                  <FlatButton label="Clear all" onTouchTap={this.cleanState} />
                   <RaisedButton label="Generate" primary={true}
-                    onClick={this.printState} />
+                    onTouchTap={this.openDialog.bind(this)} />
                 </div>
               </form>
             </div>
-            <div className="console-display">
-              <ConsoleDisplay commandName="generate:module" commandArgs={this.state}
-                argsMap={
-                  ["moduleName", "moduleMachineName", "modulePath",
-                    "moduleDescription", "modulePackage", "moduleCore",
-                    "moduleDependencies", "moduleFeature", "moduleComposer"]} />
-            </div>
           </CardText>
         </Card>
+        <Dialog
+          title="Your module is being generated..."
+          actions={standardActions}
+          modal={false}
+          ref="generateModuleDialog">
+          <LinearProgress mode="indeterminate"  />
+          <p>
+            For the time being, we are not generating any code for you (just yet,
+            but this functionality will be coming soon).
+          </p>
+          <p>
+            In the meantime, you can copy and paste the following command and
+            execute it directly in your computer console.
+          </p>
+          <div className="console-display">
+            <ConsoleDisplay
+              commandName="generate:module"
+              commandArgs={this.state}
+              argsMap={this.propsMap} />
+          </div>
+        </Dialog>
       </div>
     )
   }
