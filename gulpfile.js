@@ -36,11 +36,11 @@ var bundler = {
 };
 
 gulp.task('styles', function() {
-  return $.rubySass('app/styles/main.scss', {
+  return gulp.src('app/styles/main.scss')
+    .pipe($.sass({
       style: 'expanded',
-      precision: 10,
-      loadPath: ['app/bower_components']
-    })
+      precision: 10
+    }))
     .on('error', $.util.log.bind($.util, 'Sass Error'))
     .pipe($.autoprefixer('last 1 version'))
     .pipe(gulp.dest('dist/styles'))
